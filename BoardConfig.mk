@@ -31,6 +31,9 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_klteduos
 # NFC
 include $(COMMON_PATH)/nfc/pn547/board.mk
 
+# Properties
+TARGET_SYSTEM_PROP += device/samsung/klteduos/system.prop
+
 # Radio/RIL
 include $(COMMON_PATH)/radio/dual/board.mk
 

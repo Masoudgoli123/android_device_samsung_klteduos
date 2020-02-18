@@ -73,12 +73,6 @@ void property_override(char const prop[], char const value[], bool add = true)
     }
 }
 
-void gsm_properties()
-{
-    property_set("telephony.lteOnGsmDevice", "1");
-    property_set("ro.telephony.default_network", "9");
-}
-
 void vendor_load_properties()
 {
     std::string bootloader = GetProperty("ro.bootloader", "");
@@ -97,7 +91,6 @@ void vendor_load_properties()
             set_ro_product_prop(source, "device", "klte");
         }
         property_override("ro.build.description", "klteduosxx-user 6.0.1 MMB29M G900FDXXS1CQD2 release-keys");
-        gsm_properties();
     } else if (bootloader.find("G900MD") == 0) {
         /* klteduosub */
         for (const auto &source : ro_product_props_default_source_order) {
@@ -106,7 +99,6 @@ void vendor_load_properties()
             set_ro_product_prop(source, "device", "klte");
         }
         property_override("ro.build.description", "klteduosub-user 6.0.1 MMB29M G900MDUBS1CQD2 release-keys");
-        gsm_properties();
     }
 
     std::string device = GetProperty("ro.product.device", "");
